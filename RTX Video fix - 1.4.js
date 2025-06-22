@@ -1,10 +1,13 @@
 // ==UserScript==
 // @name         RTX Video fix
+// @name:en         RTX Video fix
 // @namespace    http://tampermonkey.net/
-// @version      1.3
+// @version      1.4
 // @description  使用小面积模糊遮罩干扰 RTX Video，解决倍速播放视频时对显卡带来的过度负载
+// @description:en Use a small-area blur overlay to interfere with RTX Video and alleviate excessive GPU load during high-speed video playback.
 // @match        *://*/*
 // @grant        none
+// @license      GPL-v3
 // ==/UserScript==
 
 (function () {
