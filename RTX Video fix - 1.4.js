@@ -26,15 +26,16 @@
         if (rate > 1.0 && !overlay) {
             const rect = wrap.getBoundingClientRect();
 
-            // 设定遮罩尺寸（右下角 120x120）
+            // 设定遮罩尺寸（屏幕中央 1*1）
             const size = 1;
 
             overlay = document.createElement('div');
             overlay.id = OVERLAY_ID;
             Object.assign(overlay.style, {
                 position: 'fixed',
-                left: `${rect.right - size}px`,
-                top: `${rect.bottom - size}px`,
+                left: '50%',
+                top: '50%',
+                transform: 'translate(-50%, -50%)',
                 width: `${size}px`,
                 height: `${size}px`,
                 backdropFilter: 'blur(1px)',
@@ -44,7 +45,7 @@
 
             });
             document.body.appendChild(overlay);
-            console.log('[HDR控制] 小角落模糊遮罩已插入');
+            console.log('[HDR控制] 小中间模糊遮罩已插入');
         } else if (rate === 1.0 && overlay) {
             overlay.remove();
             console.log('[HDR控制] 模糊遮罩已移除');
@@ -53,7 +54,7 @@
         // 实时跟随播放器位置
         if (overlay && wrap) {
             const rect = wrap.getBoundingClientRect();
-            const size = 120;
+            const size = 1;
             Object.assign(overlay.style, {
                 left: `${rect.right - size}px`,
                 top: `${rect.bottom - size}px`
